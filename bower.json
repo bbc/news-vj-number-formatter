@@ -1,12 +1,12 @@
 {
-  "name": "bbc-vj-sharetools",
-  "description": "BBC VJ Sharetools Module",
-  "main": "sharetools.js",
+  "name": "news-vj-number-formatter",
+  "description": "BBC VJ Number Formatter Module",
+  "main": "numberFormatter.js",
   "authors": [
     "fewstera <aidan.fewster@bbc.co.uk>"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/bbc/news-vj-sharetools",
+  "homepage": "https://github.com/bbc/news-vj-number-formatter",
   "moduleType": [],
   "ignore": [
     "**/.*",
@@ -15,5 +15,5 @@
     "test",
     "tests"
   ],
-  "version": "1.0.8"
+  "version": "1.0.0"
 }
