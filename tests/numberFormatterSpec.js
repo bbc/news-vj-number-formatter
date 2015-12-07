@@ -272,4 +272,42 @@ define(['NumberFormatter'],  function (NumberFormatter) {
         });
     });
 
+    describe('Percentage formatter', function () {
+        it('should append the percentage sign to the end when no service is found', function () {
+            expect(NumberFormatter.percentageFormat('non-matching-service', 50)).toBe('50%');
+        });
+        it('should append the percentage sign when the service requires', function () {
+            expect(NumberFormatter.percentageFormat('english', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('arabic', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('azeri', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('bengali', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('burmese', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('chinese_simp', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('chinese_trad', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('ukchina_simp', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('ukchina_trad', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('french', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('gahuza', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('hausa', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('hindi', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('indonesia', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('kyrgyz', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('pashto', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('russian', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('sinhala', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('somali', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('spanish', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('swahili', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('tamil', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('thai', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('ukrainian', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('uzbek', 50)).toBe('50%');
+            expect(NumberFormatter.percentageFormat('vietnamese', 50)).toBe('50%');
+        });
+        it('should prepend the percentage sign when the service requires', function () {
+            expect(NumberFormatter.percentageFormat('portuguese', 50)).toBe('%50');
+            expect(NumberFormatter.percentageFormat('turkish', 50)).toBe('%50');
+            expect(NumberFormatter.percentageFormat('urdu', 50)).toBe('%50');
+        });
+    });
 });

@@ -1,5 +1,4 @@
 define(function () {
-
     var getIntegerAndFractional = function (number) {
         var splitNumber = number.split('.'); 
         return {
@@ -83,7 +82,39 @@ define(function () {
         vietnamese: commonSeperatorFormats.decimalsAndCommas
     }; 
 
-    return {
+    var percentageFormatIsAppend = {
+        english: true,
+        arabic: true,
+        azeri: true,
+        bengali: true,
+        burmese: true,
+        chinese_simp: true,
+        chinese_trad: true,
+        ukchina_simp: true,
+        ukchina_trad: true,
+        french: true,
+        gahuza: true,
+        hausa: true,
+        hindi: true,
+        indonesia: true,
+        kyrgyz: true,
+        pashto: true,
+        portuguese: false,
+        russian: true,
+        sinhala: true,
+        somali: true,
+        spanish: true,
+        swahili: true,
+        tamil: true,
+        thai: true,
+        turkish: false,
+        urdu: false,
+        ukrainian: true,
+        uzbek: true,
+        vietnamese: true
+    }; 
+
+    var NumberFormatter = {
         format: function (service, number) {
             var numberAsString = number.toString();
             var formattedNumber;
@@ -95,6 +126,20 @@ define(function () {
             }
 
             return formattedNumber;
+        },
+        percentageFormat: function (service, number) {
+            var isAppend = percentageFormatIsAppend[service] || percentageFormatIsAppend[service] === undefined;
+            var formattedNumber = NumberFormatter.format(service, number);
+            var percentageFormattedNumber;
+            if (isAppend) {
+                percentageFormattedNumber = formattedNumber + '%';
+            } else {
+                percentageFormattedNumber = '%' + formattedNumber;
+            }
+            
+            return percentageFormattedNumber;
         }
     };
+
+    return NumberFormatter;
 });
