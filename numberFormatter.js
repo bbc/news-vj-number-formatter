@@ -32,6 +32,22 @@ define(function () {
     var customSeperatorFormats = {
         'arabic': function (number) {
            return formatNumberWithSeperators(number, '', ',');
+        },
+        'hindi': function (number) {
+            var splitNumber = getIntegerAndFractional(number);
+            var integerPart = splitNumber.integer;
+            var formattedIntegerPart = integerPart;
+            var numberHasFractional = (splitNumber.fractional.length > 0);
+            var fractionalSign = (numberHasFractional) ? '.' : '';
+
+            if (integerPart.length > 2) {
+                var lastTwoDigits = integerPart.slice(-2);
+                var remainingDigits = integerPart.slice(0, -2);
+                remainingDigits = formatNumberWithSeperators(remainingDigits, ',', '');
+                formattedIntegerPart = remainingDigits + ',' + lastTwoDigits;
+            }
+            
+            return formattedIntegerPart + fractionalSign + splitNumber.fractional;
         }
     };
 
@@ -48,7 +64,7 @@ define(function () {
         french: commonSeperatorFormats.spacesAndCommas,
         gahuza: commonSeperatorFormats.decimalsAndCommas,
         hausa: commonSeperatorFormats.commasAndDecimals,
-        hindi: commonSeperatorFormats.commasAndDecimals,
+        hindi: customSeperatorFormats.hindi,
         indonesia: commonSeperatorFormats.decimalsAndCommas,
         kyrgyz: commonSeperatorFormats.spacesAndCommas,
         pashto: commonSeperatorFormats.commasAndDecimals,
