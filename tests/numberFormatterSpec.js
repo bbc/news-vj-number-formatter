@@ -20,7 +20,7 @@ define(['NumberFormatter'],  function (NumberFormatter) {
         });
 
         it('should format numbers using the BBC Arabic style', function () {
-            expect(NumberFormatter.format('arabic', 14562.65)).toBe('14562.,65');
+            expect(NumberFormatter.format('arabic', 14562.65)).toBe('14562,65');
             expect(NumberFormatter.format('arabic', 546)).toBe('546');
             expect(NumberFormatter.format('arabic', 123456)).toBe('123456');
             expect(NumberFormatter.format('arabic', 1.23)).toBe('1,23');
@@ -47,12 +47,12 @@ define(['NumberFormatter'],  function (NumberFormatter) {
         });
 
         it('should format numbers using the BBC Burmese style', function () {
-            expect(NumberFormatter.format('burmese', 14562.65)).toBe('14 562,65');
+            expect(NumberFormatter.format('burmese', 14562.65)).toBe('14,562.65');
             expect(NumberFormatter.format('burmese', 546)).toBe('546');
-            expect(NumberFormatter.format('burmese', 123456)).toBe('123 456');
-            expect(NumberFormatter.format('burmese', 1.23)).toBe('1,23');
-            expect(NumberFormatter.format('burmese', 1234567)).toBe('1 234 567');
-            expect(NumberFormatter.format('burmese', 100000000)).toBe('100 000 000');
+            expect(NumberFormatter.format('burmese', 123456)).toBe('123,456');
+            expect(NumberFormatter.format('burmese', 1.23)).toBe('1.23');
+            expect(NumberFormatter.format('burmese', 1234567)).toBe('1,234,567');
+            expect(NumberFormatter.format('burmese', 100000000)).toBe('100,000,000');
         });
         
         it('should format numbers using the BBC Chinese simple style', function () {
@@ -101,12 +101,12 @@ define(['NumberFormatter'],  function (NumberFormatter) {
         });
 
         it('should format numbers using the BBC Gahuza style', function () {
-            expect(NumberFormatter.format('gahuza', 14562.65)).toBe('14 562,65');
+            expect(NumberFormatter.format('gahuza', 14562.65)).toBe('14.562,65');
             expect(NumberFormatter.format('gahuza', 546)).toBe('546');
-            expect(NumberFormatter.format('gahuza', 123456)).toBe('123 456');
+            expect(NumberFormatter.format('gahuza', 123456)).toBe('123.456');
             expect(NumberFormatter.format('gahuza', 1.23)).toBe('1,23');
-            expect(NumberFormatter.format('gahuza', 1234567)).toBe('1 234 567');
-            expect(NumberFormatter.format('gahuza', 100000000)).toBe('100 000 000');
+            expect(NumberFormatter.format('gahuza', 1234567)).toBe('1.234.567');
+            expect(NumberFormatter.format('gahuza', 100000000)).toBe('100.000.000');
         });
         
         it('should format numbers using the BBC Hausa style', function () {
@@ -155,12 +155,12 @@ define(['NumberFormatter'],  function (NumberFormatter) {
         });
         
         it('should format numbers using the BBC Portuguese style', function () {
-            expect(NumberFormatter.format('portuguese', 14562.65)).toBe('14,562.65');
+            expect(NumberFormatter.format('portuguese', 14562.65)).toBe('14.562,65');
             expect(NumberFormatter.format('portuguese', 546)).toBe('546');
-            expect(NumberFormatter.format('portuguese', 123456)).toBe('123,456');
-            expect(NumberFormatter.format('portuguese', 1.23)).toBe('1.23');
-            expect(NumberFormatter.format('portuguese', 1234567)).toBe('1,234,567');
-            expect(NumberFormatter.format('portuguese', 100000000)).toBe('100,000,000');
+            expect(NumberFormatter.format('portuguese', 123456)).toBe('123.456');
+            expect(NumberFormatter.format('portuguese', 1.23)).toBe('1,23');
+            expect(NumberFormatter.format('portuguese', 1234567)).toBe('1.234.567');
+            expect(NumberFormatter.format('portuguese', 100000000)).toBe('100.000.000');
         });
         
         it('should format numbers using the BBC Russian style', function () {
