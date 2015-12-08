@@ -119,12 +119,12 @@ define(['NumberFormatter'],  function (NumberFormatter) {
         });
         
         it('should format numbers using the BBC Hindi style', function () {
-            expect(NumberFormatter.format('hindi', 14562.65)).toBe('145,62.65');
-            expect(NumberFormatter.format('hindi', 546)).toBe('5,46');
-            expect(NumberFormatter.format('hindi', 123456)).toBe('1,234,56');
+            expect(NumberFormatter.format('hindi', 14562.65)).toBe('14,562.65');
+            expect(NumberFormatter.format('hindi', 546)).toBe('546');
+            expect(NumberFormatter.format('hindi', 123456)).toBe('1,23,456');
             expect(NumberFormatter.format('hindi', 1.23)).toBe('1.23');
-            expect(NumberFormatter.format('hindi', 1234567)).toBe('12,345,67');
-            expect(NumberFormatter.format('hindi', 100000000)).toBe('1,000,000,00');
+            expect(NumberFormatter.format('hindi', 1234567)).toBe('12,34,567');
+            expect(NumberFormatter.format('hindi', 100000000)).toBe('10,00,00,000');
         });
 
         it('should format numbers using the BBC Indonesia style', function () {

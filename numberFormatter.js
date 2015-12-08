@@ -39,11 +39,13 @@ define(function () {
             var numberHasFractional = (splitNumber.fractional.length > 0);
             var fractionalSign = (numberHasFractional) ? '.' : '';
 
-            if (integerPart.length > 2) {
-                var lastTwoDigits = integerPart.slice(-2);
-                var remainingDigits = integerPart.slice(0, -2);
-                remainingDigits = formatNumberWithSeperators(remainingDigits, ',', '');
-                formattedIntegerPart = remainingDigits + ',' + lastTwoDigits;
+            if (integerPart.length > 3) {
+                var lastThreeDigits = integerPart.slice(-3);
+                var remainingDigits = integerPart.slice(0, -3);
+                var formattedRemainingDigits;
+
+                formattedRemainingDigits = remainingDigits.replace(/(\d)(?=(\d{2})+(?!\d))/g, '$1,');
+                formattedIntegerPart = formattedRemainingDigits + ',' + lastThreeDigits;
             }
             
             return formattedIntegerPart + fractionalSign + splitNumber.fractional;
