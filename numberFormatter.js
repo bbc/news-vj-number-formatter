@@ -25,9 +25,6 @@ define(function () {
         },
         'decimalsAndCommas': function (number) {
             return formatNumberWithSeperators(number, '.', ',');
-        },
-        'decimals': function (number) {
-            return formatNumberWithSeperators(number, '.', '.');
         }
     };
     
@@ -84,7 +81,7 @@ define(function () {
         sinhala:           commonSeperatorFormats.commasAndDecimals,
         sinhali:           commonSeperatorFormats.commasAndDecimals,
         somali:            commonSeperatorFormats.commasAndDecimals,
-        spanish:           commonSeperatorFormats.decimals,
+        spanish:           commonSeperatorFormats.decimalsAndCommas,
         swahili:           commonSeperatorFormats.commasAndDecimals,
         tamil:             commonSeperatorFormats.commasAndDecimals,
         thai:              commonSeperatorFormats.commasAndDecimals,
