@@ -191,12 +191,12 @@ define(['NumberFormatter'],  function (NumberFormatter) {
         });
 
         it('should format numbers using the BBC Spanish style', function () {
-            expect(NumberFormatter.format('spanish', 14562.65)).toBe('14 562,65');
+            expect(NumberFormatter.format('spanish', 14562.65)).toBe('14.562.65');
             expect(NumberFormatter.format('spanish', 546)).toBe('546');
-            expect(NumberFormatter.format('spanish', 123456)).toBe('123 456');
-            expect(NumberFormatter.format('spanish', 1.23)).toBe('1,23');
-            expect(NumberFormatter.format('spanish', 1234567)).toBe('1 234 567');
-            expect(NumberFormatter.format('spanish', 100000000)).toBe('100 000 000');
+            expect(NumberFormatter.format('spanish', 123456)).toBe('123.456');
+            expect(NumberFormatter.format('spanish', 1.23)).toBe('1.23');
+            expect(NumberFormatter.format('spanish', 1234567)).toBe('1.234.567');
+            expect(NumberFormatter.format('spanish', 100000000)).toBe('100.000.000');
         });
         
         it('should format numbers using the BBC Swahili style', function () {
