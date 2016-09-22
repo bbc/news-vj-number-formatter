@@ -71,7 +71,7 @@ define(function () {
         indonesia:         commonSeperatorFormats.decimalsAndCommas,
         indonesian:        commonSeperatorFormats.decimalsAndCommas,
         kyrgyz:            commonSeperatorFormats.spacesAndCommas,
-        mundo:             commonSeperatorFormats.spacesAndCommas,
+        mundo:             commonSeperatorFormats.decimalsAndCommas,
         news:              commonSeperatorFormats.commasAndDecimals,
         nepali:            commonSeperatorFormats.commasAndDecimals,
         persian:           commonSeperatorFormats.commasAndDecimals,
