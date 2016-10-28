@@ -134,7 +134,7 @@ define(function () {
 
     var NumberFormatter = {
         format: function (service, number) {
-            var numberAsString = number.toString();
+            var numberAsString = number ? number.toString() : '';
             var formattedNumber;
 
             if (serviceSeperatorFormats[service]) {
