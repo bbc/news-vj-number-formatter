@@ -132,9 +132,13 @@ define(function () {
         vietnamese: true
     }; 
 
+    var isNumeric = function (n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    };
+
     var NumberFormatter = {
         format: function (service, number) {
-            var numberAsString = number ? number.toString() : '';
+            var numberAsString = isNumeric(number) ? number.toString() : '';
             var formattedNumber;
 
             if (serviceSeperatorFormats[service]) {
