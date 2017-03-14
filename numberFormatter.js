@@ -1,6 +1,6 @@
 define(function () {
     var getIntegerAndFractional = function (number) {
-        var splitNumber = number.split('.'); 
+        var splitNumber = number.split('.');
         return {
             integer: splitNumber[0],
             fractional: splitNumber[1] || ''
@@ -27,7 +27,7 @@ define(function () {
             return formatNumberWithSeperators(number, '.', ',');
         }
     };
-    
+
     var customSeperatorFormats = {
         'arabic': function (number) {
            return formatNumberWithSeperators(number, '', ',');
@@ -47,7 +47,7 @@ define(function () {
                 formattedRemainingDigits = remainingDigits.replace(/(\d)(?=(\d{2})+(?!\d))/g, '$1,');
                 formattedIntegerPart = formattedRemainingDigits + ',' + lastThreeDigits;
             }
-            
+
             return formattedIntegerPart + fractionalSign + splitNumber.fractional;
         }
     };
@@ -85,12 +85,12 @@ define(function () {
         swahili:           commonSeperatorFormats.commasAndDecimals,
         tamil:             commonSeperatorFormats.commasAndDecimals,
         thai:              commonSeperatorFormats.commasAndDecimals,
-        turkish:           commonSeperatorFormats.commasAndDecimals,
+        turkish:           commonSeperatorFormats.decimalsAndCommas,
         urdu:              commonSeperatorFormats.commasAndDecimals,
         ukrainian:         commonSeperatorFormats.spacesAndCommas,
         uzbek:             commonSeperatorFormats.spacesAndCommas,
         vietnamese:        commonSeperatorFormats.decimalsAndCommas
-    }; 
+    };
 
     var percentageFormatIsAppend = {
         english: true,
@@ -130,7 +130,7 @@ define(function () {
         ukrainian: true,
         uzbek: true,
         vietnamese: true
-    }; 
+    };
 
     var isNumeric = function (n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
@@ -158,7 +158,7 @@ define(function () {
             } else {
                 percentageFormattedNumber = '%' + formattedNumber;
             }
-            
+
             return percentageFormattedNumber;
         }
     };
