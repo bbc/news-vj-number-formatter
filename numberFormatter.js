@@ -52,84 +52,47 @@ define(function () {
         }
     };
 
-    var serviceSeperatorFormats = {
-        english:           commonSeperatorFormats.commasAndDecimals,
-        arabic:            customSeperatorFormats.arabic,
-        azeri:             commonSeperatorFormats.spacesAndCommas,
-        bengali:           commonSeperatorFormats.commasAndDecimals,
-        brasil:            commonSeperatorFormats.spacesAndCommas,
-        burmese:           commonSeperatorFormats.commasAndDecimals,
-        chinese:           commonSeperatorFormats.commasAndDecimals,
-        chinese_simp:      commonSeperatorFormats.commasAndDecimals,
-        chinese_trad:      commonSeperatorFormats.commasAndDecimals,
-        ukchina_simp:      commonSeperatorFormats.commasAndDecimals,
-        ukchina_trad:      commonSeperatorFormats.commasAndDecimals,
-        french:            commonSeperatorFormats.spacesAndCommas,
-        gahuza:            commonSeperatorFormats.decimalsAndCommas,
-        hausa:             commonSeperatorFormats.commasAndDecimals,
-        hindi:             customSeperatorFormats.hindi,
-        indonesia:         commonSeperatorFormats.decimalsAndCommas,
-        indonesian:        commonSeperatorFormats.decimalsAndCommas,
-        kyrgyz:            commonSeperatorFormats.spacesAndCommas,
-        mundo:             commonSeperatorFormats.decimalsAndCommas,
-        news:              commonSeperatorFormats.commasAndDecimals,
-        nepali:            commonSeperatorFormats.commasAndDecimals,
-        persian:           commonSeperatorFormats.commasAndDecimals,
-        pashto:            commonSeperatorFormats.commasAndDecimals,
-        portuguese:        commonSeperatorFormats.decimalsAndCommas,
-        russian:           commonSeperatorFormats.spacesAndCommas,
-        sinhala:           commonSeperatorFormats.commasAndDecimals,
-        sinhali:           commonSeperatorFormats.commasAndDecimals,
-        somali:            commonSeperatorFormats.commasAndDecimals,
-        spanish:           commonSeperatorFormats.decimalsAndCommas,
-        swahili:           commonSeperatorFormats.commasAndDecimals,
-        tamil:             commonSeperatorFormats.commasAndDecimals,
-        thai:              commonSeperatorFormats.commasAndDecimals,
-        turkish:           commonSeperatorFormats.decimalsAndCommas,
-        urdu:              commonSeperatorFormats.commasAndDecimals,
-        ukrainian:         commonSeperatorFormats.spacesAndCommas,
-        uzbek:             commonSeperatorFormats.spacesAndCommas,
-        vietnamese:        commonSeperatorFormats.decimalsAndCommas
+    var serviceSeperatorFormats = function(service){
+        switch(service){
+            case 'arabic':
+                return customSeperatorFormats.arabic;
+            break;
+            case 'hindi':
+                return customSeperatorFormats.hindi;
+            break;
+            case 'azeri':
+            case 'brasil':
+            case 'french':
+            case 'kyrgyz':
+            case 'russian':
+            case 'ukrainian':
+            case 'uzbek':
+                return commonSeperatorFormats.spacesAndCommas;
+            break;
+            case 'gahuza':
+            case 'indonesia':
+            case 'indonesian':
+            case 'mundo':
+            case 'portuguese':
+            case 'spanish':
+            case 'turkish':
+            case 'vietnamese':
+                return commonSeperatorFormats.spacesAndCommas;
+            break;
+            default:
+                return commonSeperatorFormats.commasAndDecimals;
+            break;
+        }
     };
 
-    var percentageFormatIsAppend = {
-        english: true,
-        arabic: true,
-        azeri: true,
-        bengali: true,
-        brasil: true,
-        burmese: true,
-        chinese: true,
-        chinese_simp: true,
-        chinese_trad: true,
-        ukchina_simp: true,
-        ukchina_trad: true,
-        french: true,
-        gahuza: true,
-        hausa: true,
-        hindi: true,
-        indonesia: true,
-        indonesian: true,
-        kyrgyz: true,
-        mundo: true,
-        news: true,
-        persian: true,
-        nepali: true,
-        pashto: true,
-        portuguese: false,
-        russian: true,
-        sinhala: true,
-        sinhali: true,
-        somali: true,
-        spanish: true,
-        swahili: true,
-        tamil: true,
-        thai: true,
-        turkish: false,
-        urdu: false,
-        ukrainian: true,
-        uzbek: true,
-        vietnamese: true
+    var percentageFormatIsAppend = function(service){
+        switch(service){
+            case 'persian':
+            case 'turkish':
+                return false;
+            break;
+        }
+        return true;
     };
 
     var isNumeric = function (n) {
@@ -150,7 +113,7 @@ define(function () {
             return formattedNumber;
         },
         percentageFormat: function (service, number) {
-            var isAppend = percentageFormatIsAppend[service] || percentageFormatIsAppend[service] === undefined;
+            var isAppend = percentageFormatIsAppend(service);
             var formattedNumber = NumberFormatter.format(service, number);
             var percentageFormattedNumber;
             if (isAppend) {
