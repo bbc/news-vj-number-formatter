@@ -1,6 +1,6 @@
 {
   "name": "bbc-vj-number-formatter",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "BBC VJ Number Formatter Module",
   "devDependencies": {
     "grunt": "^0.4.5",
