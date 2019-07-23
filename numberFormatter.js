@@ -32,6 +32,35 @@ define(function () {
         'arabic': function (number) {
            return formatNumberWithSeperators(number, '', ',');
         },
+        'persian': function (number) {
+            const persianArray = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '،'];
+            let outputStr = '';
+
+            const numStr = num.toString();
+
+            for (let i = 0; i < numStr.length; i++) {
+                // for some reason . and - got caught up in the lower conditions
+                // and failed in a previous project.
+                if (numStr[i] === '.') {
+                    outputStr += '.';
+                }
+                else if (numStr[i] === '-') {
+                    outputStr += '-';
+                }
+                else if (!Number.isNaN(numStr[i])) {
+                    outputStr += persianArray[numStr[i]];
+                }
+                else if (numStr[i] === ',') {
+                    outputStr += persianArray[10];
+                }
+                else {
+                    // try and catch other non-number characters.
+                    outputStr += numStr[i];
+                }
+            }
+
+            return outputStr;
+        }
         'hindi': function (number) {
             var splitNumber = getIntegerAndFractional(number);
             var integerPart = splitNumber.integer;
@@ -74,7 +103,7 @@ define(function () {
         mundo:             commonSeperatorFormats.decimalsAndCommas,
         news:              commonSeperatorFormats.commasAndDecimals,
         nepali:            commonSeperatorFormats.commasAndDecimals,
-        persian:           commonSeperatorFormats.commasAndDecimals,
+        persian:           customSeperatorFormats.persian,
         pashto:            commonSeperatorFormats.commasAndDecimals,
         portuguese:        commonSeperatorFormats.decimalsAndCommas,
         russian:           commonSeperatorFormats.spacesAndCommas,
@@ -113,7 +142,7 @@ define(function () {
         kyrgyz: true,
         mundo: true,
         news: true,
-        persian: true,
+        persian: false,
         nepali: true,
         pashto: true,
         portuguese: false,
