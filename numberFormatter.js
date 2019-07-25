@@ -36,7 +36,7 @@ define(function () {
             const persianArray = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '،'];
             let outputStr = '';
 
-            const numStr = num.toString();
+            const numStr = number.toString();
 
             for (let i = 0; i < numStr.length; i++) {
                 // for some reason . and - got caught up in the lower conditions
@@ -60,7 +60,7 @@ define(function () {
             }
 
             return outputStr;
-        }
+        },
         'hindi': function (number) {
             var splitNumber = getIntegerAndFractional(number);
             var integerPart = splitNumber.integer;
