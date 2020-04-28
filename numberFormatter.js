@@ -78,11 +78,36 @@ define(function () {
             }
 
             return formattedIntegerPart + fractionalSign + splitNumber.fractional;
-        }
+        },
+        nepali: function (number) {
+            const nums = {
+                0: '०',
+                1: '१',
+                2: '२',
+                3: '३',
+                4: '४',
+                5: '५',
+                6: '६',
+                7: '७',
+                8: '८',
+                9: '९',
+            };
+
+            const numStr = formatNumberWithSeperators(number, ',', '.').toString();
+
+            const arrNumNe = numStr.toString().split('').map((ch) => {
+                if (ch === '.' || ch === ',') {
+                    return ch;
+                }
+                return nums[Number(ch)];
+            });
+            return arrNumNe.join('');
+        },
     };
 
     var serviceSeperatorFormats = {
         english:           commonSeperatorFormats.commasAndDecimals,
+        afrique:           commonSeperatorFormats.decimalsAndCommas,
         arabic:            customSeperatorFormats.arabic,
         azeri:             commonSeperatorFormats.spacesAndCommas,
         bengali:           commonSeperatorFormats.commasAndDecimals,
@@ -100,9 +125,10 @@ define(function () {
         indonesia:         commonSeperatorFormats.decimalsAndCommas,
         indonesian:        commonSeperatorFormats.decimalsAndCommas,
         kyrgyz:            commonSeperatorFormats.spacesAndCommas,
+        marathi:           customSeperatorFormats.hindi,
         mundo:             commonSeperatorFormats.decimalsAndCommas,
         news:              commonSeperatorFormats.commasAndDecimals,
-        nepali:            commonSeperatorFormats.commasAndDecimals,
+        nepali:            customSeperatorFormats.nepali,
         persian:           customSeperatorFormats.persian,
         pashto:            commonSeperatorFormats.commasAndDecimals,
         portuguese:        commonSeperatorFormats.decimalsAndCommas,
@@ -123,6 +149,7 @@ define(function () {
 
     var percentageFormatIsAppend = {
         english: true,
+        afrique: true,
         arabic: true,
         azeri: true,
         bengali: true,
@@ -140,12 +167,13 @@ define(function () {
         indonesia: true,
         indonesian: true,
         kyrgyz: true,
+        marathi: true,
         mundo: true,
         news: true,
         persian: false,
         nepali: true,
         pashto: true,
-        portuguese: false,
+        portuguese: true,
         russian: true,
         sinhala: true,
         sinhali: true,
