@@ -33,12 +33,12 @@ define(function () {
            return formatNumberWithSeperators(number, '', ',');
         },
         'persian': function (number) {
-            const persianArray = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '،'];
-            let outputStr = '';
+            var persianArray = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '،'];
+            var outputStr = '';
 
-            const numStr = number.toString();
+            var numStr = number.toString();
 
-            for (let i = 0; i < numStr.length; i++) {
+            for (var i = 0; i < numStr.length; i++) {
                 // for some reason . and - got caught up in the lower conditions
                 // and failed in a previous project.
                 if (numStr[i] === '.') {
@@ -80,7 +80,7 @@ define(function () {
             return formattedIntegerPart + fractionalSign + splitNumber.fractional;
         },
         nepali: function (number) {
-            const nums = {
+            var nums = {
                 0: '०',
                 1: '१',
                 2: '२',
@@ -93,9 +93,9 @@ define(function () {
                 9: '९',
             };
 
-            const numStr = formatNumberWithSeperators(number, ',', '.').toString();
+            var numStr = formatNumberWithSeperators(number, ',', '.').toString();
 
-            const arrNumNe = numStr.toString().split('').map((ch) => {
+            var arrNumNe = numStr.toString().split('').map(function (ch) {
                 if (ch === '.' || ch === ',') {
                     return ch;
                 }
