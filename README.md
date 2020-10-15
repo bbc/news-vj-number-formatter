@@ -15,7 +15,14 @@ Then use `require()` to pull it in:
 ```js
 const numberFormatter = require('bbc-vj-number-formatter');
 
-numberFormatter.format('bengali', 30.1);
+numberFormatter.format('english', 1928074);
+// 1,928,074
+
+numberFormatter.format('bengali', 1928074);
+// ১,৯২৮,০৭৪
+
+numberFormatter.percentageFormat('arabic', 82.0);
+// %82
 ````
 
 ## How to use it in your frontend code:
@@ -31,8 +38,17 @@ Then `import` it, if you need to format numbers at run-time, in the browser:
 ```js
 import numberFormatter from 'bbc-vj-number-formatter/numberFormatter';
 
-numberFormatter.format('bengali', 30.1);
+numberFormatter.format('english', 27.10);
+// 27.1
+
+numberFormatter.format('mundo', 27.10);
+// 27,1
+
+numberFormatter.percentageFormat('nepali', 82.0);
+// ८२%
 ````
+
+You can find more usage examples in `examples.js`
 
 ## Running the tests:
 
