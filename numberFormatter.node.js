@@ -32,6 +32,8 @@ const customSeperatorFormats = {
         return formatNumberWithSeperators(number, '', ',');
     },
     persian: function (number) {
+        // Thousands separator: ,
+        // Decimal separator: /
         const persianArray = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '،'];
         let outputStr = '';
 
@@ -41,7 +43,7 @@ const customSeperatorFormats = {
             // for some reason . and - got caught up in the lower conditions
             // and failed in a previous project.
             if (numStr[i] === '.') {
-                outputStr += '.';
+                outputStr += '/';
             }
             else if (numStr[i] === '-') {
                 outputStr += '-';
@@ -130,61 +132,61 @@ const serviceSeperatorFormats = {
     afaanoromoo: commonSeperatorFormats.commasAndDecimals,
     afrique: commonSeperatorFormats.spacesAndCommas,
     amharic: commonSeperatorFormats.commasAndDecimals,
-    arabic: customSeperatorFormats.arabic,
+    arabic: customSeperatorFormats.arabic, // Does not match spreadsheet 1,234,567
     azeri: commonSeperatorFormats.spacesAndCommas,
     bengali: customSeperatorFormats.bengali,
-    brasil: commonSeperatorFormats.decimalsAndCommas,
-    burmese: commonSeperatorFormats.commasAndDecimals,
-    chinese_simp: commonSeperatorFormats.commasAndDecimals,
-    chinese_trad: commonSeperatorFormats.commasAndDecimals,
-    chinese: commonSeperatorFormats.commasAndDecimals,
+    brasil: commonSeperatorFormats.decimalsAndCommas, // Synonym: portuguese
+    burmese: commonSeperatorFormats.commasAndDecimals, // missing vernacular, separators correct
+    chinese_simp: commonSeperatorFormats.commasAndDecimals, // Synonym: zhongwen_simp
+    chinese_trad: commonSeperatorFormats.commasAndDecimals, // Synonym: zhongwen_trad
+    chinese: commonSeperatorFormats.commasAndDecimals, // Synonym: zhongwen_simp (?)
     cymrufyw: commonSeperatorFormats.commasAndDecimals,
     english: commonSeperatorFormats.commasAndDecimals,
-    french: commonSeperatorFormats.spacesAndCommas,
+    french: commonSeperatorFormats.spacesAndCommas, // Synonym: afrique
     gahuza: commonSeperatorFormats.decimalsAndCommas,
-    greatlakes: commonSeperatorFormats.commasAndDecimals,
+    greatlakes: commonSeperatorFormats.decimalsAndCommas, // Synonym: gahuza
     gujarati: customSeperatorFormats.hindi,
     hausa: commonSeperatorFormats.commasAndDecimals,
     hindi: customSeperatorFormats.hindi,
     igbo: commonSeperatorFormats.commasAndDecimals,
     indonesia: commonSeperatorFormats.decimalsAndCommas,
-    indonesian: commonSeperatorFormats.decimalsAndCommas,
-    japanese: commonSeperatorFormats.commasAndDecimals,
-    korean: commonSeperatorFormats.commasAndDecimals,
+    indonesian: commonSeperatorFormats.decimalsAndCommas, // Synonym: indonesia
+    japanese: commonSeperatorFormats.commasAndDecimals, // Special formatting 12万3456 for commas, ok on decimals
+    korean: commonSeperatorFormats.spacesAndCommas,
     kyrgyz: commonSeperatorFormats.spacesAndCommas,
     marathi: customSeperatorFormats.hindi,
     mundo: commonSeperatorFormats.decimalsAndCommas,
     naidheachdan: commonSeperatorFormats.commasAndDecimals,
     nepali: customSeperatorFormats.nepali,
-    news: commonSeperatorFormats.commasAndDecimals,
-    pashto: commonSeperatorFormats.commasAndDecimals,
+    news: commonSeperatorFormats.commasAndDecimals, // Synonym: english
+    pashto: commonSeperatorFormats.commasAndDecimals, // Missing vernacular, maybe separators okay (upside down comma?)
     persian: customSeperatorFormats.persian,
     pidgin: commonSeperatorFormats.commasAndDecimals,
     portuguese: commonSeperatorFormats.decimalsAndCommas,
-    punjabi: commonSeperatorFormats.decimalsAndCommas,
+    punjabi: customSeperatorFormats.hindi,
     russian: commonSeperatorFormats.spacesAndCommas,
-    serbian_cyr: commonSeperatorFormats.spacesAndCommas,
-    serbian_lat: commonSeperatorFormats.spacesAndCommas,
-    serbian: commonSeperatorFormats.spacesAndCommas,
+    serbian_cyr: commonSeperatorFormats.decimalsAndCommas,
+    serbian_lat: commonSeperatorFormats.decimalsAndCommas,
+    serbian: commonSeperatorFormats.decimalsAndCommas, // Synonym: serbian_lat (?)
     sinhala: commonSeperatorFormats.commasAndDecimals,
-    sinhali: commonSeperatorFormats.commasAndDecimals,
+    sinhali: commonSeperatorFormats.commasAndDecimals, // Synonym: sinhala
     somali: commonSeperatorFormats.commasAndDecimals,
-    spanish: commonSeperatorFormats.decimalsAndCommas,
+    spanish: commonSeperatorFormats.decimalsAndCommas, // Synonym: mundo
     swahili: commonSeperatorFormats.commasAndDecimals,
     tamil: commonSeperatorFormats.commasAndDecimals,
-    telugu: commonSeperatorFormats.decimalsAndCommas,
+    telugu: customSeperatorFormats.hindi,
     thai: commonSeperatorFormats.commasAndDecimals,
     tigrinya: commonSeperatorFormats.commasAndDecimals,
     turkce: commonSeperatorFormats.decimalsAndCommas,
-    turkish: commonSeperatorFormats.decimalsAndCommas,
+    turkish: commonSeperatorFormats.decimalsAndCommas, // Synonym: turkce
     ukchina_simp: commonSeperatorFormats.commasAndDecimals,
     ukchina_trad: commonSeperatorFormats.commasAndDecimals,
-    ukchina: commonSeperatorFormats.commasAndDecimals,
+    ukchina: commonSeperatorFormats.commasAndDecimals, // Synonym: ukchina_simp (?)
     ukrainian: commonSeperatorFormats.spacesAndCommas,
     urdu: commonSeperatorFormats.commasAndDecimals,
     uzbek: commonSeperatorFormats.spacesAndCommas,
     vietnamese: commonSeperatorFormats.decimalsAndCommas,
-    welsh: commonSeperatorFormats.commasAndDecimals,
+    welsh: commonSeperatorFormats.commasAndDecimals, // Synonym: cymrufyw
     yoruba: commonSeperatorFormats.commasAndDecimals,
     zhongwen_simp: commonSeperatorFormats.commasAndDecimals,
     zhongwen_trad: commonSeperatorFormats.commasAndDecimals,
@@ -192,7 +194,7 @@ const serviceSeperatorFormats = {
 };
 
 const percentageFormatIsAppend = {
-    afaanoromoo: true,
+    afaanoromoo: false,
     afrique: true,
     amharic: true,
     arabic: false,
@@ -222,7 +224,7 @@ const percentageFormatIsAppend = {
     naidheachdan: true,
     nepali: true,
     news: true,
-    pashto: true,
+    pashto: false,
     persian: false,
     pidgin: true,
     portuguese: true,

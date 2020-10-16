@@ -2,6 +2,8 @@
 
 This module is used to format numbers correctly for BBC international services.
 
+Formatting rules have been cross-checked with [this spreadsheet](https://docs.google.com/spreadsheets/d/1ZFwG07JE6-78qnYd9P1Wq7PIYbhtYCrN-OcDzHIpga0/edit#gid=0).
+
 ## How to use it at build time:
 
 Install as a dev dependency:
