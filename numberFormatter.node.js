@@ -127,81 +127,83 @@ const customSeperatorFormats = {
 };
 
 const serviceSeperatorFormats = {
-    afaanoromoo: commonSeperatorFormats.commasAndDecimals, // Check
-    afrique: commonSeperatorFormats.spacesAndCommas, // Check
-    amharic: commonSeperatorFormats.commasAndDecimals, // Check
+    afaanoromoo: commonSeperatorFormats.commasAndDecimals,
+    afrique: commonSeperatorFormats.spacesAndCommas,
+    amharic: commonSeperatorFormats.commasAndDecimals,
     arabic: customSeperatorFormats.arabic,
     azeri: commonSeperatorFormats.spacesAndCommas,
     bengali: customSeperatorFormats.bengali,
-    brasil: commonSeperatorFormats.spacesAndCommas,
+    brasil: commonSeperatorFormats.decimalsAndCommas,
     burmese: commonSeperatorFormats.commasAndDecimals,
     chinese_simp: commonSeperatorFormats.commasAndDecimals,
     chinese_trad: commonSeperatorFormats.commasAndDecimals,
     chinese: commonSeperatorFormats.commasAndDecimals,
-    cymrufyw: commonSeperatorFormats.commasAndDecimals, // Check
+    cymrufyw: commonSeperatorFormats.commasAndDecimals,
     english: commonSeperatorFormats.commasAndDecimals,
     french: commonSeperatorFormats.spacesAndCommas,
     gahuza: commonSeperatorFormats.decimalsAndCommas,
-    greatlakes: commonSeperatorFormats.commasAndDecimals, // Check
+    greatlakes: commonSeperatorFormats.commasAndDecimals,
+    gujarati: customSeperatorFormats.hindi,
     hausa: commonSeperatorFormats.commasAndDecimals,
     hindi: customSeperatorFormats.hindi,
-    igbo: commonSeperatorFormats.commasAndDecimals, // Check
+    igbo: commonSeperatorFormats.commasAndDecimals,
     indonesia: commonSeperatorFormats.decimalsAndCommas,
     indonesian: commonSeperatorFormats.decimalsAndCommas,
-    japanese: commonSeperatorFormats.commasAndDecimals, // Check
+    japanese: commonSeperatorFormats.commasAndDecimals,
     korean: commonSeperatorFormats.commasAndDecimals,
     kyrgyz: commonSeperatorFormats.spacesAndCommas,
     marathi: customSeperatorFormats.hindi,
     mundo: commonSeperatorFormats.decimalsAndCommas,
-    naidheachdan: commonSeperatorFormats.commasAndDecimals, // Check
+    naidheachdan: commonSeperatorFormats.commasAndDecimals,
     nepali: customSeperatorFormats.nepali,
     news: commonSeperatorFormats.commasAndDecimals,
     pashto: commonSeperatorFormats.commasAndDecimals,
     persian: customSeperatorFormats.persian,
-    pidgin: commonSeperatorFormats.commasAndDecimals, // Check
+    pidgin: commonSeperatorFormats.commasAndDecimals,
     portuguese: commonSeperatorFormats.decimalsAndCommas,
-    punjabi: commonSeperatorFormats.decimalsAndCommas, // Check
+    punjabi: commonSeperatorFormats.decimalsAndCommas,
     russian: commonSeperatorFormats.spacesAndCommas,
-    serbian: commonSeperatorFormats.spacesAndCommas,
+    serbian_cyr: commonSeperatorFormats.spacesAndCommas,
     serbian_lat: commonSeperatorFormats.spacesAndCommas,
-    serbian_cyr: commonSeperatorFormats.spacesAndCommas, // Check
+    serbian: commonSeperatorFormats.spacesAndCommas,
     sinhala: commonSeperatorFormats.commasAndDecimals,
     sinhali: commonSeperatorFormats.commasAndDecimals,
     somali: commonSeperatorFormats.commasAndDecimals,
     spanish: commonSeperatorFormats.decimalsAndCommas,
     swahili: commonSeperatorFormats.commasAndDecimals,
     tamil: commonSeperatorFormats.commasAndDecimals,
-    telugu: commonSeperatorFormats.decimalsAndCommas, // Check
+    telugu: commonSeperatorFormats.decimalsAndCommas,
     thai: commonSeperatorFormats.commasAndDecimals,
-    tigrinya: commonSeperatorFormats.commasAndDecimals, // Check
+    tigrinya: commonSeperatorFormats.commasAndDecimals,
     turkce: commonSeperatorFormats.decimalsAndCommas,
     turkish: commonSeperatorFormats.decimalsAndCommas,
-    ukchina: commonSeperatorFormats.commasAndDecimals,
     ukchina_simp: commonSeperatorFormats.commasAndDecimals,
     ukchina_trad: commonSeperatorFormats.commasAndDecimals,
+    ukchina: commonSeperatorFormats.commasAndDecimals,
     ukrainian: commonSeperatorFormats.spacesAndCommas,
     urdu: commonSeperatorFormats.commasAndDecimals,
     uzbek: commonSeperatorFormats.spacesAndCommas,
     vietnamese: commonSeperatorFormats.decimalsAndCommas,
-    welsh: commonSeperatorFormats.commasAndDecimals, // Check
-    yoruba: commonSeperatorFormats.commasAndDecimals, // Check
-    zhongwen: commonSeperatorFormats.commasAndDecimals,
+    welsh: commonSeperatorFormats.commasAndDecimals,
+    yoruba: commonSeperatorFormats.commasAndDecimals,
     zhongwen_simp: commonSeperatorFormats.commasAndDecimals,
     zhongwen_trad: commonSeperatorFormats.commasAndDecimals,
+    zhongwen: commonSeperatorFormats.commasAndDecimals,
 };
 
 const percentageFormatIsAppend = {
     afaanoromoo: true,
     afrique: true,
+    amharic: true,
     arabic: false,
     azeri: true,
     bengali: true,
     brasil: true,
     burmese: true,
-    cymrufyw: true,
     chinese_simp: true,
     chinese_trad: true,
     chinese: true,
+    cymrufyw: true,
     english: true,
     french: true,
     gahuza: true,
@@ -226,9 +228,9 @@ const percentageFormatIsAppend = {
     portuguese: true,
     punjabi: true,
     russian: true,
-    serbian: true,
-    serbian_lat: true,
     serbian_cyr: true,
+    serbian_lat: true,
+    serbian: true,
     sinhala: true,
     sinhali: true,
     somali: true,
@@ -240,18 +242,18 @@ const percentageFormatIsAppend = {
     tigrinya: true,
     turkce: false,
     turkish: false,
-    ukchine: true,
     ukchina_simp: true,
     ukchina_trad: true,
+    ukchina: true,
     ukrainian: true,
     urdu: false,
     uzbek: true,
     vietnamese: true,
     welsh: true,
     yoruba: true,
-    zhongwen: true,
     zhongwen_simp: true,
     zhongwen_trad: true,
+    zhongwen: true,
 };
 
 const isNumeric = (n) => !Number.isNaN(parseFloat(n)) && Number.isFinite(n);
