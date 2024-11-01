@@ -126,6 +126,30 @@ const customSeperatorFormats = {
         });
         return arrNumNe.join('');
     },
+    pashto: function (number) {
+        const nums = {
+            0: '۰',
+            1: '۱',
+            2: '۲',
+            3: '۳',
+            4: '۴',
+            5: '۵',
+            6: '۶',
+            7: '۷',
+            8: '۸',
+            9: '۹'
+        };
+
+        const numStr = formatNumberWithSeperators(number, ',', '.').toString();
+        const arrNumNe = numStr.toString().split('').map((ch) => {
+            if (ch === '.' || ch === ',') {
+                return ch;
+            }
+            return nums[Number(ch)];
+        });
+
+        return arrNumNe.join('');
+    },
 };
 
 const serviceSeperatorFormats = {
@@ -159,7 +183,7 @@ const serviceSeperatorFormats = {
     naidheachdan: commonSeperatorFormats.commasAndDecimals,
     nepali: customSeperatorFormats.nepali,
     news: commonSeperatorFormats.commasAndDecimals, // Synonym: english
-    pashto: commonSeperatorFormats.commasAndDecimals, // Missing vernacular, maybe separators okay (upside down comma?)
+    pashto: customSeperatorFormats.pashto, // Missing vernacular, maybe separators okay (upside down comma?)
     persian: customSeperatorFormats.persian,
     pidgin: commonSeperatorFormats.commasAndDecimals,
     portuguese: commonSeperatorFormats.decimalsAndCommas,
