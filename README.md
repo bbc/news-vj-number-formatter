@@ -38,7 +38,7 @@ npm i bbc-vj-number-formatter
 Then `import` it, if you need to format numbers at run-time, in the browser:
 
 ```js
-import numberFormatter from 'bbc-vj-number-formatter/numberFormatter';
+import numberFormatter from 'bbc-vj-number-formatter';
 
 numberFormatter.format('english', 27.10);
 // 27.1
