@@ -43,7 +43,7 @@ const customSeperatorFormats = {
             // for some reason . and - got caught up in the lower conditions
             // and failed in a previous project.
             if (numStr[i] === '.') {
-                outputStr += '/';
+                outputStr += '.';
             }
             else if (numStr[i] === '-') {
                 outputStr += '-';
