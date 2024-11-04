@@ -218,7 +218,7 @@ const serviceSeperatorFormats = {
 };
 
 const percentageFormatIsAppend = {
-    afaanoromoo: false,
+    afaanoromoo: true,
     afrique: true,
     amharic: true,
     arabic: false,
@@ -266,8 +266,8 @@ const percentageFormatIsAppend = {
     telugu: true,
     thai: true,
     tigrinya: true,
-    turkce: false,
-    turkish: false,
+    turkce: true,
+    turkish: true,
     ukchina_simp: true,
     ukchina_trad: true,
     ukchina: true,
