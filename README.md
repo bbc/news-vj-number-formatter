@@ -9,7 +9,7 @@ Formatting rules have been cross-checked with [this spreadsheet](https://docs.go
 Install as a dev dependency:
 
 ```sh
-npm i news-vj-number-formatter -D
+npm i @bbc/news-vj-number-formatter -D
 ```
 
 Then use `require()` to pull it in:
@@ -32,7 +32,7 @@ numberFormatter.percentageFormat('arabic', 82.0);
 Install as a run-time dependency:
 
 ```sh
-npm i bbc-vj-number-formatter
+npm i @bbc/news-vj-number-formatter
 ```
 
 Then `import` it, if you need to format numbers at run-time, in the browser:
