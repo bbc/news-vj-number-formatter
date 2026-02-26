@@ -3,6 +3,9 @@
   "version": "1.0.7",
   "description": "BBC VJ Number Formatter Module",
   "main": "numberFormatter.node.js",
+  "browser": "numberFormatter.js",
+  "module": "numberFormatter.js",
+  "es2015": "numberFormatter.js",
   "scripts": {
     "test": "jest && echo 'Done! Check the coverage report at ./coverage/lcov-report/index.html'"
   },
