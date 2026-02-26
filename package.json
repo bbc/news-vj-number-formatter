@@ -10,6 +10,6 @@
     "test": "jest && echo 'Done! Check the coverage report at ./coverage/lcov-report/index.html'"
   },
   "devDependencies": {
-    "jest": "^26.5.3"
+    "jest": "^30.2.0"
   }
 }
