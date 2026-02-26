@@ -1,6 +1,6 @@
 {
   "name": "@bbc/news-vj-number-formatter",
-  "version": "1.0.8",
+  "version": "2.0.0",
   "description": "BBC VJ Number Formatter Module",
   "main": "numberFormatter.node.js",
   "browser": "numberFormatter.js",
