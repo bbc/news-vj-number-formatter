@@ -1,5 +1,5 @@
 {
-  "name": "bbc-vj-number-formatter",
+  "name": "@bbc/news-vj-number-formatter",
   "version": "1.0.8",
   "description": "BBC VJ Number Formatter Module",
   "main": "numberFormatter.node.js",
