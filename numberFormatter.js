@@ -1,3 +1,8 @@
-const numberFormatter = require('numberFormatter.node');
+const numberFormatter = require('./numberFormatter.node');
 
-export default numberFormatter;
+const { format, percentageFormat } = numberFormatter;
+
+export {
+    format,
+    percentageFormat,
+}
