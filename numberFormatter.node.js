@@ -267,7 +267,7 @@ const percentageFormatIsAppend = {
     thai: true,
     tigrinya: true,
     turkce: true,
-    turkish: true,
+    turkish: false,
     ukchina_simp: true,
     ukchina_trad: true,
     ukchina: true,
