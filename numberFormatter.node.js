@@ -300,9 +300,9 @@ const NumberFormatter = {
 
         return formattedNumber;
     },
-    percentageFormat: (service, number) => {
+    percentageFormat: (service, number, decimalPlaces = null) => {
         const isAppend = percentageFormatIsAppend[service] || percentageFormatIsAppend[service] === undefined;
-        const formattedNumber = NumberFormatter.format(service, number);
+        const formattedNumber = NumberFormatter.format(service, number, decimalPlaces);
         const percentageFormattedNumber = isAppend ?
             `${formattedNumber}%` :
             `%${formattedNumber}`;

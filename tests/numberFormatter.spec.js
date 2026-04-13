@@ -327,4 +327,12 @@ describe('Percentage formatter', function () {
         expect(NumberFormatter.percentageFormat('turkish', 50)).toBe('%50');
         expect(NumberFormatter.percentageFormat('urdu', 50)).toBe('%50');
     });
+
+    it('should use the correct number of decimal places', function () {
+        expect(NumberFormatter.percentageFormat('english', 50.1267)).toBe('50.1267%');
+        expect(NumberFormatter.percentageFormat('english', 50.1267, 0)).toBe('50%');
+        expect(NumberFormatter.percentageFormat('english', 50.1267, 1 )).toBe('50.1%');
+        expect(NumberFormatter.percentageFormat('english', 50.1267, 2)).toBe('50.13%');
+        expect(NumberFormatter.percentageFormat('english', 50.1267, 3)).toBe('50.127%');
+    });
 });
