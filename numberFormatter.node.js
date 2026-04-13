@@ -267,7 +267,7 @@ const percentageFormatIsAppend = {
     thai: true,
     tigrinya: true,
     turkce: true,
-    turkish: true,
+    turkish: false,
     ukchina_simp: true,
     ukchina_trad: true,
     ukchina: true,
@@ -300,9 +300,9 @@ const NumberFormatter = {
 
         return formattedNumber;
     },
-    percentageFormat: (service, number) => {
+    percentageFormat: (service, number, decimalPlaces = null) => {
         const isAppend = percentageFormatIsAppend[service] || percentageFormatIsAppend[service] === undefined;
-        const formattedNumber = NumberFormatter.format(service, number);
+        const formattedNumber = NumberFormatter.format(service, number, decimalPlaces);
         const percentageFormattedNumber = isAppend ?
             `${formattedNumber}%` :
             `%${formattedNumber}`;

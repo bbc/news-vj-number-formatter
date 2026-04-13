@@ -155,12 +155,12 @@ describe('Number formatter', function () {
     });
 
     it('should format numbers using the BBC Pashto style', function () {
-        expect(NumberFormatter.format('pashto', 14562.65)).toBe('14,562.65');
-        expect(NumberFormatter.format('pashto', 546)).toBe('546');
-        expect(NumberFormatter.format('pashto', 123456)).toBe('123,456');
-        expect(NumberFormatter.format('pashto', 1.23)).toBe('1.23');
-        expect(NumberFormatter.format('pashto', 1234567)).toBe('1,234,567');
-        expect(NumberFormatter.format('pashto', 100000000)).toBe('100,000,000');
+        expect(NumberFormatter.format('pashto', 14562.65)).toBe('۱۴,۵۶۲.۶۵');
+        expect(NumberFormatter.format('pashto', 546)).toBe('۵۴۶');
+        expect(NumberFormatter.format('pashto', 123456)).toBe('۱۲۳,۴۵۶');
+        expect(NumberFormatter.format('pashto', 1.23)).toBe('۱.۲۳');
+        expect(NumberFormatter.format('pashto', 1234567)).toBe('۱,۲۳۴,۵۶۷');
+        expect(NumberFormatter.format('pashto', 100000000)).toBe('۱۰۰,۰۰۰,۰۰۰');
     });
 
     it('should format numbers using the BBC Persian style', function () {
@@ -309,7 +309,7 @@ describe('Percentage formatter', function () {
         expect(NumberFormatter.percentageFormat('hindi', 50)).toBe('50%');
         expect(NumberFormatter.percentageFormat('indonesia', 50)).toBe('50%');
         expect(NumberFormatter.percentageFormat('kyrgyz', 50)).toBe('50%');
-        expect(NumberFormatter.percentageFormat('pashto', 50)).toBe('50%');
+        expect(NumberFormatter.percentageFormat('pashto', 50)).toBe('%۵۰');
         expect(NumberFormatter.percentageFormat('portuguese', 50)).toBe('50%');
         expect(NumberFormatter.percentageFormat('russian', 50)).toBe('50%');
         expect(NumberFormatter.percentageFormat('sinhala', 50)).toBe('50%');
@@ -326,5 +326,13 @@ describe('Percentage formatter', function () {
         expect(NumberFormatter.percentageFormat('arabic', 50)).toBe('%50');
         expect(NumberFormatter.percentageFormat('turkish', 50)).toBe('%50');
         expect(NumberFormatter.percentageFormat('urdu', 50)).toBe('%50');
+    });
+
+    it('should use the correct number of decimal places', function () {
+        expect(NumberFormatter.percentageFormat('english', 50.1267)).toBe('50.1267%');
+        expect(NumberFormatter.percentageFormat('english', 50.1267, 0)).toBe('50%');
+        expect(NumberFormatter.percentageFormat('english', 50.1267, 1 )).toBe('50.1%');
+        expect(NumberFormatter.percentageFormat('english', 50.1267, 2)).toBe('50.13%');
+        expect(NumberFormatter.percentageFormat('english', 50.1267, 3)).toBe('50.127%');
     });
 });
