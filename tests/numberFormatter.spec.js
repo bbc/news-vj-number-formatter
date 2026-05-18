@@ -164,12 +164,12 @@ describe('Number formatter', function () {
     });
 
     it('should format numbers using the BBC Persian style', function () {
-        expect(NumberFormatter.format('persian', 14562.65)).toBe('۱۴۵۶۲.۶۵');
+        expect(NumberFormatter.format('persian', 14562.65)).toBe('۱۴,۵۶۲.۶۵');
         expect(NumberFormatter.format('persian', 546)).toBe('۵۴۶');
-        expect(NumberFormatter.format('persian', 123456)).toBe('۱۲۳۴۵۶');
+        expect(NumberFormatter.format('persian', 123456)).toBe('۱۲۳,۴۵۶');
         expect(NumberFormatter.format('persian', 1.23)).toBe('۱.۲۳');
-        expect(NumberFormatter.format('persian', 1234567)).toBe('۱۲۳۴۵۶۷');
-        expect(NumberFormatter.format('persian', 100000000)).toBe('۱۰۰۰۰۰۰۰۰');
+        expect(NumberFormatter.format('persian', 1234567)).toBe('۱,۲۳۴,۵۶۷');
+        expect(NumberFormatter.format('persian', 100000000)).toBe('۱۰۰,۰۰۰,۰۰۰');
     });
 
     it('should format numbers using the BBC Portuguese style', function () {

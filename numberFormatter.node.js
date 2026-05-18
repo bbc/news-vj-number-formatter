@@ -32,35 +32,31 @@ const customSeperatorFormats = {
         return formatNumberWithSeperators(number, '', ',');
     },
     persian: function (number) {
-        // Thousands separator: ,
-        // Decimal separator: /
-        const persianArray = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '،'];
-        let outputStr = '';
+        const nums = {
+            0: '۰',
+            1: '۱',
+            2: '۲',
+            3: '۳',
+            4: '۴',
+            5: '۵',
+            6: '۶',
+            7: '۷',
+            8: '۸',
+            9: '۹'
+        };
 
-        const numStr = number.toString();
+        // use dot for decimal separator
+        // in Persian decimal separated can be like <sub>/</sub>
+        // but '.' is used to avoid html/formatting
+        const numStr = formatNumberWithSeperators(number, ',', '.').toString();
+        const arrNum = numStr.toString().split('').map((ch) => {
+            if (ch === '.' || ch === ',' || ch === '-') {
+                return ch;
+            }
+            return nums[Number(ch)];
+        });
 
-        for (let i = 0; i < numStr.length; i++) {
-            // for some reason . and - got caught up in the lower conditions
-            // and failed in a previous project.
-            if (numStr[i] === '.') {
-                outputStr += '.';
-            }
-            else if (numStr[i] === '-') {
-                outputStr += '-';
-            }
-            else if (!Number.isNaN(numStr[i])) {
-                outputStr += persianArray[numStr[i]];
-            }
-            else if (numStr[i] === ',') {
-                outputStr += persianArray[10];
-            }
-            else {
-                // try and catch other non-number characters.
-                outputStr += numStr[i];
-            }
-        }
-
-        return outputStr;
+        return arrNum.join('');
     },
     nepali: function (number) {
         const nums = {
@@ -78,13 +74,13 @@ const customSeperatorFormats = {
 
         const numStr = formatNumberWithSeperators(number, ',', '.').toString();
 
-        const arrNumNe = numStr.toString().split('').map((ch) => {
+        const arrNum = numStr.toString().split('').map((ch) => {
             if (ch === '.' || ch === ',') {
                 return ch;
             }
             return nums[Number(ch)];
         });
-        return arrNumNe.join('');
+        return arrNum.join('');
     },
     hindi: function (number) {
         const splitNumber = getIntegerAndFractional(number);
@@ -118,13 +114,13 @@ const customSeperatorFormats = {
 
         const numStr = formatNumberWithSeperators(number, ',', '.').toString();
 
-        const arrNumNe = numStr.toString().split('').map((ch) => {
+        const arrNum = numStr.toString().split('').map((ch) => {
             if (ch === '.' || ch === ',') {
                 return ch;
             }
             return nums[Number(ch)];
         });
-        return arrNumNe.join('');
+        return arrNum.join('');
     },
     pashto: function (number) {
         const nums = {
@@ -141,14 +137,14 @@ const customSeperatorFormats = {
         };
 
         const numStr = formatNumberWithSeperators(number, ',', '.').toString();
-        const arrNumNe = numStr.toString().split('').map((ch) => {
+        const arrNum = numStr.toString().split('').map((ch) => {
             if (ch === '.' || ch === ',') {
                 return ch;
             }
             return nums[Number(ch)];
         });
 
-        return arrNumNe.join('');
+        return arrNum.join('');
     },
 };
 
