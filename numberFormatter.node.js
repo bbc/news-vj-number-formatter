@@ -45,11 +45,11 @@ const customSeperatorFormats = {
             9: '۹'
         };
 
-        // use dot for decimal separator
-        // in Persian decimal separated can be like <sub>/</sub>
-        // but '.' is used to avoid html/formatting
         const numStr = formatNumberWithSeperators(number, ',', '.').toString();
         const arrNum = numStr.toString().split('').map((ch) => {
+            // Persian decimal separator.
+            // Requires style `font-feature-settings: 'ss05';` to display as small '/'
+            if (ch === '.') return '٫';
             if (ch === '.' || ch === ',' || ch === '-') {
                 return ch;
             }
