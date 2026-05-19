@@ -1,6 +1,6 @@
 {
   "name": "@bbc/news-vj-number-formatter",
-  "version": "2.2.1",
+  "version": "2.3.1",
   "engines": {
     "node": ">=18.14.0"
   },
